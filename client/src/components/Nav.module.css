@@ -1,0 +1,34 @@
+.estiloDelNav{
+  height: 90px;
+  background-color: black;
+  /* border: 2px solid black; */
+  /* backdrop-filter: blur(16px); */
+}
+.contenedorDelNav{
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+
+.imagen{
+  height: 50px;
+  width: 50px;
+  margin-top: 50px;
+  box-shadow: 0 8px 15px white;
+
+}
+
+.nombreDelNav{
+  position: relative; 
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  
+  
+
+}
+
+
+

@@ -32,4 +32,24 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(status).send(message);
 });
 
+
+
+// PRUEBA
+server.get("/", function (_req, res) {
+  console.log("someone pinged here!! " + new Date().toLocaleDateString());
+  res.send({
+    "id": "0",
+    "tittle": "Tarea 1", 
+    "description": "Descripcion 1",
+    "priorityLevel":"high", 
+    "finalized": false 
+  });
+});
+
+
+server.get("/getVideoJuegos", (_req, res) => {
+  console.log("someone pinged here!! " + new Date().toLocaleDateString());
+  console.log("buscando video juegos")
+});
+
 module.exports = server;
