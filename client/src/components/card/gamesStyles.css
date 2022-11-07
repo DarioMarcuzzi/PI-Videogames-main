@@ -1,0 +1,82 @@
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: transparent;
+}
+.games{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(86, 132, 187, 0.7);
+  border-radius: 10px;
+ 
+  box-shadow: rgb(116, 132, 224) -4px 5px 12px;
+  color: black ;
+  overflow: hidden;
+}
+
+.games :hover{
+  animation: animacionCarta 1s ease 0s 1 normal forwards;
+  cursor: pointer;
+
+}
+.nombreJuego{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border : 1px solid white;
+
+  width: 350px;  
+  height: 50px;
+  background-color: #000000;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.75);
+  overflow: hidden;
+  color: rgb(255, 255, 255) ;
+  font-family: fantasy;
+  font-size: 20px;
+}
+
+
+
+
+.contenedor-img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.img{ 
+  object-fit: cover;
+  width: 90%;
+  min-height: 80%;
+  border-radius: 10px;
+  border: 3px solid black;
+
+}
+
+
+.genero{
+  color:  white;
+  text-shadow: 1px 1px 1px black;}
+
+@keyframes animacionCarta{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+
+
+}

@@ -1,0 +1,84 @@
+.contenedor-Principal{
+    background-image: url('../img/caja-Juego.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.img-Juego{
+    width: 100%;
+    width: 650px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 11%;
+    margin-top: -4%;
+    background-color: black;
+    
+}
+
+/* .img-Juego:hover{
+    transform: rotate(5turn);
+    transition: all 5s ease-in-out;
+} */
+.img2{
+width: 100%;
+height: 100%;
+border: 3px solid rgb(139, 139, 139);
+box-shadow: rgb(139, 139, 139) 0px 0px 12px;
+border-radius: 50%;
+animation: myAAnim 2.5s ease 0s normal forwards;
+
+
+} 
+
+.contenedor-Detalles{
+    background-color: rgb(87, 87, 87, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8%;
+    margin-top: -3.3%;
+    width: 655px;
+    height: 825px;
+    border-radius: 5%;
+    border : 3px solid rgb(0, 0, 0);
+    box-shadow: black -10px 5px 12px;
+
+
+}
+.nombre{
+    color: white;
+
+}
+.boton:hover{
+    cursor: pointer;
+
+}
+
+
+@keyframes myAAnim {
+    0% {
+        animation-timing-function: ease-out;
+        transform: rotate(-2turn);
+        transition: all 9s ease-in-out;
+        transform-origin: center center;
+        }
+    }
+
+.cambio:active{
+    transform: rotate(5turn);
+    transition: all 5s ease-in-out;
+   
+}

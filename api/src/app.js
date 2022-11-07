@@ -4,14 +4,18 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 
+
 require('./db.js');
 
 const server = express();
+const cors = require('cors');
+
 
 server.name = 'API';
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
+server.use(cors());
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
@@ -33,23 +37,5 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 
-
-// PRUEBA
-server.get("/", function (_req, res) {
-  console.log("someone pinged here!! " + new Date().toLocaleDateString());
-  res.send({
-    "id": "0",
-    "tittle": "Tarea 1", 
-    "description": "Descripcion 1",
-    "priorityLevel":"high", 
-    "finalized": false 
-  });
-});
-
-
-server.get("/getVideoJuegos", (_req, res) => {
-  console.log("someone pinged here!! " + new Date().toLocaleDateString());
-  console.log("buscando video juegos")
-});
 
 module.exports = server;

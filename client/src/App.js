@@ -1,31 +1,39 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Switch
 } from "react-router-dom";
-import pagInicial from './components/pagInicial';
-import Home from './components/Home.jsx'
-
+import PagInicial from './components/pagInicial';
+import Home from './components/home/Home.jsx';
+import About from './components/about/About.js';
+import DetalleJuego from './components/card/DetalleJuego.js';
+import CreateGame from './components/createGame/createGame.jsx';
 
 function App() {
 
   return (
     
-    <Router>
+    <BrowserRouter>
     <div className="App">
 
         <Switch>
 
           <Route exact path="/" component={Home} />
         
-          <Route path="/pagInicial" component={pagInicial}/>
+          <Route path="/pagInicial" component={PagInicial}/>
+
+          <Route path="/About" component={About} />
+
+          <Route path="/DetalleJuego" component={DetalleJuego} />
+
+          <Route path="/CreateGame" component={CreateGame} />
         
         </Switch>
             
     </div>
-    </Router>
+    </BrowserRouter>
     
     
     );
