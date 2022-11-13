@@ -4,7 +4,7 @@ const { Router } = require('express');
 
 
 const  VideoGames  = require('../controladores/videogames.js');
-// const { Genres } = require('../models/Genre.js');
+const  Genres  = require('../controladores/genre.js');
 
 const router = Router();
 
@@ -13,6 +13,6 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use('/videogames', VideoGames);
-// router.use('/genres', Genres);
+router.use('/genres', Genres);
 
 module.exports = router;

@@ -1,20 +1,30 @@
-.flex-container{
+.contenedor-cartas-g{
+  border-radius: 10px;
+  width: 300px;
+  height: 420px;
+  border: solid 1px #880a0a;  
+  margin: 5px;
+  background-color: rgba(0, 179, 255, 0.41);
+
+}
+
+
+
+/* .container-card{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: transparent;
+  
+  
 }
 .games{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(86, 132, 187, 0.7);
+  background-color: #78C850;
   border-radius: 10px;
- 
-  box-shadow: rgb(116, 132, 224) -4px 5px 12px;
-  color: black ;
-  overflow: hidden;
+  width: 400px;
+  height: 420px;
+  border: solid 1px #ffffff;  
+  margin: 5px;
 }
 
 .games :hover{
@@ -28,7 +38,7 @@
   justify-content: center;
   align-items: center;
   border : 1px solid white;
-
+  
   width: 350px;  
   height: 50px;
   background-color: #000000;
@@ -41,22 +51,10 @@
   font-size: 20px;
 }
 
-
-
-
-.contenedor-img{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
 .img{ 
   object-fit: cover;
   width: 90%;
-  min-height: 80%;
+  min-height: 100%;
   border-radius: 10px;
   border: 3px solid black;
 
@@ -79,4 +77,4 @@
   }
 
 
-}
+} */

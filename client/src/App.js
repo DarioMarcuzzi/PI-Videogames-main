@@ -22,11 +22,11 @@ function App() {
 
           <Route exact path="/" component={Home} />
         
-          <Route path="/pagInicial" component={PagInicial}/>
+          <Route path="/videogames" component={PagInicial}/>
 
           <Route path="/About" component={About} />
 
-          <Route path="/DetalleJuego" component={DetalleJuego} />
+          <Route path="/DetalleJuego/:id" component={DetalleJuego} />
 
           <Route path="/CreateGame" component={CreateGame} />
         

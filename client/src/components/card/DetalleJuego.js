@@ -1,61 +1,84 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./detalleJuegoStyles.css";
-import { useLocation, Link } from "react-router-dom";
-
-import * as API from "../actions/actions";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getVideoGamebyId } from "../actions/actions";
 
 export default function DetalleJuego() {
-  const location = useLocation();
-  const { juegoSeleccionado } = location.state;
-  const game = juegoSeleccionado.game;
-  const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const videoGameById = useSelector((state) => state.videoGameById);
+
 
   useEffect(() => {
-    API.getVideogameDetail(game.id).then((e) => {
-      setDescription(e.description.replace(/(<([^>]+)>)/gi, ""));
-    });
-  });
+    dispatch(getVideoGamebyId(id));
+    return () => {
+      console.log("entro");
+      dispatch({ type: "GET_VIDEOGAMES_BY_ID", payload: {} });
+    };
+  }, []);
 
-const numer = 7
-
-
-console.log(numer)
+  console.log(videoGameById);
 
   return (
-    <div className="contenedor-Principal">
-      <div className="img-Juego">
-          <img
-            src={game.background_image}
-            alt="no se carga imagen de juego"
-            className="img2"
-            >
-          </img>
-      </div>
-
-      <div className="contenedor-Detalles">
-        <h1 className="nombre">{game.name}</h1>
-
-        {game.genres.map((genre) => (
-          <div className="genero" key={genre.id}>
-            <li>{genre.name}</li>
+    <div>
+      {videoGameById ? (
+        <div className="contenedor-Principal">
+          <div className="img-Juego">
+            <img
+              src={videoGameById.image}
+              alt="no se carga imagen de juego"
+              className="img2"
+            ></img>
           </div>
-        ))}
 
-        {game.parent_platforms.map((plataforma) => (
-          <div>
-            <li key={plataforma.id}>{plataforma.platform.name}</li>
+          <div className="contenedor-Detalles">
+            <div>
+              <h1>{videoGameById.name}</h1>
+            </div>
+            <div>
+              <p>{videoGameById.description}</p>
+            </div>
+            <div className="genres-platforms">
+              <div className="genres">
+                <label>
+                  <b>Genres:</b>
+                {videoGameById.genres?.map((genre) => (
+                  <div className="genero" key={genre.id}>
+                    
+                    <li>{genre}</li>
+                  </div>
+                ))}
+                </label>
+              </div>
+
+              <div className="platforms">
+                <label>
+                  <b>Platforms:</b>
+                {videoGameById.plataforms?.map((plataforma) => (
+                  <div>
+                    <li key={plataforma.id}>{plataforma}</li>
+                  </div>
+                ))}
+                </label>
+              </div>
+            </div>
+            <p>{videoGameById.released}</p>
+            <p>{videoGameById.rating}</p>
+
+            <Link to="/videogames">
+              <strong>
+                {" "}
+                <button className="boton">B4CK←</button>
+              </strong>
+            </Link>
           </div>
-        ))}
-        
-        <p>{description}</p>
-
-        <p>{game.released}</p>
-        <p>{game.rating}</p>
-        
-        <Link to="/pagInicial">
-              <strong> <button className="boton">B4CK←</button></strong>
-          </Link>
-      </div>
+        </div>
+      ) : (
+        <h1>chau</h1>
+      )}
     </div>
   );
 }
