@@ -2,7 +2,9 @@ import React from 'react'
 import './createGame.css'
 import Nav from '../Nav/Nav'
 import { useState, useEffect} from 'react'
-import * as API from "../actions/actions";
+import { useDispatch, useSelector } from 'react-redux'
+import { getPlatforms } from '../actions/actions'
+
 
 
 
@@ -13,21 +15,25 @@ const[juegoNuevo, setJuegoNuevo] = useState({
     release_date: '',
     rating: Number,
     genre: [],
-    plataform: []
+    // genre: [1,2,3], y es un [asda.dsad.sdad]
+    plataform: ""
+    
 
 })
+const plataformas = useSelector(state => state.plataformas)
+const dispatch = useDispatch()
 
+console.log("plataformas", plataformas)
 
+useEffect (() => {
+  dispatch(getPlatforms())
 
+}, [dispatch])
 
 const mostrart = (e) => {
-  if(juegoNuevo.name.length < 4 ){
-    alert("su juego no puede tener menos de 4 letras")
-  }   //SEGUIR CON VALIDACIONES 4/8/2022
-
   console.log(juegoNuevo)
-  API.buscarOtro(juegoNuevo)
-} 
+  
+}
 
 const nombreJuego = (e) =>{
 
@@ -61,7 +67,7 @@ const genresJuego = (e) =>{
 
 const plataformJuego = (e) =>{
     if(e.target.checked){
-      juegoNuevo.plataform.push(e.target.value)
+      setJuegoNuevo({ ...juegoNuevo, plataform: juegoNuevo.plataform  + e.target.value + ","})
       }
       else{
         juegoNuevo.plataform.splice(juegoNuevo.plataform.indexOf(e.target.value), 1)
@@ -117,7 +123,7 @@ const plataformJuego = (e) =>{
                       onChange={genresJuego}
                       type="checkbox"
                       name="accion"
-                      value="Accion"
+                      value="1"
                       
                 />
                 <label> Aventura:</label>
@@ -125,56 +131,49 @@ const plataformJuego = (e) =>{
                   type="checkbox"
                   onChange={genresJuego}
                   name="aventura"
-                  value="Aventura"
+                  value="3"
                 />
                 <label> Indie:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego}
                   name="indie"
-                  value="Indie"
+                  value="2"
                 />
                 <label> RPG:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego}
                   name="rpg"
-                  value="RPG"
+                  value="4"
                 />
                 <label> Arcade:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego}
                   name="arcade"
-                  value="Arcade"
+                  value="10"
                 />
                 <label> Puzzle:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego}
                   name="puzzle"
-                  value="Puzzle"
+                  value="9"
                 />
                 <label> Shooter:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego} 
                   name="shooter"
-                  value="Shooter"
+                  value="6"
                 />
                 <label> Simulador:</label>
                 <input 
                   type="checkbox"
                   onChange={genresJuego}
                   name="simulador"
-                  value="Simulador"
-                />
-                <label> Otro:</label>
-                <input 
-                  type="checkbox"
-                  onChange={genresJuego}
-                  name="otro"
-                  value="Otro"
+                  value="8"
                 />
                 <br />
                 {/* ****************************************************************************************************************************************** */}

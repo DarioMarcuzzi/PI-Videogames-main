@@ -13,7 +13,7 @@ function Home() {
         <h3>Hola estas en el home</h3>
       </div>
       <div className="start">
-        <Link to="/pagInicial">
+        <Link to="/videogames">
           <strong>
             <button className="link">Start</button>
           </strong>
